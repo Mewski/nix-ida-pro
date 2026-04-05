@@ -99,6 +99,7 @@ stdenv.mkDerivation {
     $(cat $NIX_CC/nix-support/dynamic-linker) $src \
       --mode unattended --prefix $out/opt/ida-pro
 
+    rm -f $out/opt/ida-pro/*.desktop
     cp $out/opt/ida-pro/appico.png $out/share/pixmaps/ida-pro.png
 
     chmod +x $out/opt/ida-pro/ida
