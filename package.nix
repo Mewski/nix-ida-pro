@@ -21,6 +21,7 @@
   libxcrypt,
   curl,
   openssl,
+  libsecret,
   kdePackages,
 
   forceWayland ? false,
@@ -69,6 +70,7 @@ stdenv.mkDerivation {
     (libxcrypt.override { enableHashes = "all"; })
     curl
     openssl
+    libsecret
     stdenv.cc.cc.lib # libstdc++
     python3
     kdePackages.qtbase
