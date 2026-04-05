@@ -49,7 +49,7 @@ To include IDA Pro in your NixOS system using this flake, follow these steps:
     }
     ```
 
-    If you want to use the Wayland variant, you can select it using `programs.ida-pro.package`:
+    If you want to use the Wayland variant:
 
     ```nix
     { pkgs, ... }: {
@@ -60,10 +60,10 @@ To include IDA Pro in your NixOS system using this flake, follow these steps:
     }
     ```
 
- 4. **Add the installer to the nix store:**
+ 4. **Add the installer to the Nix store:**
 
     ```console
-    $ nix-store --add-fixed sha256 ida-pro_93_x64linux.run
+    $ nix-store --add-fixed sha256 ida_pro_linux.run
     ```
 
     You can download the installer from the [Hex-Rays download center](https://my.hex-rays.com/).
@@ -78,7 +78,7 @@ To include IDA Pro in your NixOS system using this flake, follow these steps:
       programs.ida-pro = {
         enable = true;
         package = pkgs.ida-pro.override {
-          overrideSource = ./ida-pro_93_x64linux.run;
+          overrideSource = ./ida_pro_linux.run;
         };
       };
     }

@@ -1,0 +1,11 @@
+{
+  "version": "9.3sp1",
+  "platforms": {
+    "x86_64-linux": "ida_pro_linux.run",
+    "aarch64-linux": "ida_pro_linux-arm.run"
+  },
+  "hashes": {
+    "ida_pro_linux.run": "095bf5114b7645236a1ee43b65f64aca7da3337ebc6e7f9799077db6f58cd307",
+    "ida_pro_linux-arm.run": "4ebfe28f114600989cbf1c08e603add8fd1dc33265b51672afeb9f01e144162f"
+  }
+}

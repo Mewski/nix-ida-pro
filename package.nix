@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  requireFile,
+  callPackage,
   autoPatchelfHook,
   makeWrapper,
   makeDesktopItem,
@@ -24,19 +24,20 @@
   forceWayland ? false,
   overrideSource ? null,
 }:
-stdenv.mkDerivation {
-  pname = "ida-pro";
-  version = "9.3sp1";
-
-  src =
+let
+  sources = callPackage ./sources.nix { };
+  source =
     if overrideSource != null then
       overrideSource
+    else if builtins.hasAttr stdenv.hostPlatform.system sources.platforms then
+      sources.platforms.${stdenv.hostPlatform.system}
     else
-      requireFile {
-        name = "ida-pro_93_x64linux.run";
-        url = "https://my.hex-rays.com/";
-        sha256 = "095bf5114b7645236a1ee43b65f64aca7da3337ebc6e7f9799077db6f58cd307";
-      };
+      throw "No IDA Pro source for system ${stdenv.hostPlatform.system}";
+in
+stdenv.mkDerivation {
+  pname = "ida-pro";
+  inherit (sources) version;
+  src = source;
 
   nativeBuildInputs = [
     makeWrapper

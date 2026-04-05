@@ -13,15 +13,10 @@
       flake-utils,
     }:
     let
-      mkPackages =
-        pkgs:
-        let
-          packages = {
-            ida-pro = pkgs.callPackage ./package.nix { };
-            ida-pro-wayland = pkgs.callPackage ./package.nix { forceWayland = true; };
-          };
-        in
-        packages;
+      mkPackages = pkgs: {
+        ida-pro = pkgs.callPackage ./package.nix { };
+        ida-pro-wayland = pkgs.callPackage ./package.nix { forceWayland = true; };
+      };
     in
     flake-utils.lib.eachDefaultSystem (
       system:

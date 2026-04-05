@@ -16,7 +16,7 @@
         defaultText = lib.literalExpression "pkgs.ida-pro";
         example = lib.literalExpression ''
           pkgs.ida-pro-wayland.override {
-            overrideSource = ./ida-pro_93_x64linux.run;
+            overrideSource = ./ida_pro_linux.run;
           };
         '';
       };
