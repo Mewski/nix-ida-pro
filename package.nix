@@ -84,7 +84,12 @@ stdenv.mkDerivation {
     glib
   ];
 
-  appendRunpaths = [ "${lib.getLib python3}/lib" ];
+  appendRunpaths = [
+    "${lib.getLib python3}/lib"
+    "${lib.getLib curl}/lib"
+    "${lib.getLib openssl}/lib"
+    "${lib.getLib libsecret}/lib"
+  ];
 
   dontUnpack = true;
 
