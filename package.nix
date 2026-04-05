@@ -19,6 +19,8 @@
   python3,
   zlib,
   libxcrypt,
+  curl,
+  openssl,
   kdePackages,
 
   forceWayland ? false,
@@ -65,6 +67,8 @@ stdenv.mkDerivation {
     gtk3
     zlib
     (libxcrypt.override { enableHashes = "all"; })
+    curl
+    openssl
     stdenv.cc.cc.lib # libstdc++
     python3
     kdePackages.qtbase
