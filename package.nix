@@ -77,6 +77,13 @@ stdenv.mkDerivation {
     kdePackages.qtwayland
   ];
 
+  runtimeDependencies = [
+    curl
+    openssl
+    libsecret
+    glib
+  ];
+
   appendRunpaths = [ "${lib.getLib python3}/lib" ];
 
   dontUnpack = true;
